@@ -4,170 +4,182 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>hikr</title>
-    <link rel="shortcut icon" href="{{url_for('static', filename='hikrlogo.png')}}"type="image/png">
+    <link rel="shortcut icon" href="{{url_for('static', filename='image/hikrlogo.png')}}"type="image/png">
 
-
-
-    <link href="{{url_for('static', filename='custom.css')}}"  rel="stylesheet" type="text/css" />
-
-    
+    <link href="{{url_for('static', filename='style/custom.css')}}"  rel="stylesheet" type="text/css" />
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-     
-
-    
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-  
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   </head>
+
   <body class="main">
+    <!--navbar-->
     <nav class="navbar navbar-inverse fixed-top">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-          <li><img src="{{url_for('static', filename='hikr.png')}}" width=75 ></li>
+          <a href="/"><li><img src="{{url_for('static', filename='image/hikr.png')}}" width=75 ></li></a>
         </ul>
       </div>
     </nav>
 
-  {%if photos!="" and photoLen>0%}
-  <div class="container">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-  <ul class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="{{0}}" class="active" ></li>
-    {%for i in range(1,photoLen)%}
-      <li data-target="#myCarousel" data-slide-to="{{i}}" ></li>
-    {% endfor %}
-  </ul>
+    <!--back button-->
+    <button onclick="window.history.back()" class="submit-button back-button">
+      Back to Search
+    </button>
 
-  <!-- The slideshow -->
-  <div class="carousel-inner carousel-custom">
-    <div class="carousel-item active">
-      <img src={{trail['photos'][0]}} class="d-block" style="margin: auto" height=350>
-    </div>
-    {%for i in range(1,photoLen)%}
-    <div class="carousel-item">
-      <img src={{trail['photos'][i]}} class="d-block" style="margin: auto" height=350>
-    </div>
-    {% endfor %}
-  </div>
-
-  <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </a>
-  </div>
-  </div>
-  {%endif%}
-
-
-
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 park-info">
-        <h2 class="big-h2">
-          {{trail['name']}}
-        </h2>
-        
-      </div>
-      <div class="col-lg-6">
-        {%if trail['website']!=""%}
-        <p>
-          <strong>Address:</strong> {{trail['address']}}
-        </p>
-        {%endif%}
-        {%if trail['website']!=""%}
-        <p>
-          <strong>Website:</strong> <a href="{{trail['website']}}">{{trail['website']}}</a>
-        </p>
-        {%endif%}
-        {%if trail['rating']!=""%}
-        <p>
-          <strong>Rating:</strong> {{trail['rating']}}/5
-        </p>
-        {%endif%}
-
-        {%if trail['is_open']!=''%}
-          {%if trail['is_open']%}
-            <h6>Open Now</h6>
-          {%else%}
-            <h6>Currently Closed</h6>
-          {%endif%}
-        {%endif%}
-        {%if trail['hours']!=""%}
-          <table>
-          {%for i in range(0,7)%}
-            <tr>
-              <td>
-                {{trail['hours'][i]}}
-              </td>
-            </tr>
-          {%endfor%}
-          </table>
-        {%endif%}
-      </div>
-    </div>
-
-    <h2 class="weather-header"> Weather </h2>
-
-    <div class="row">
-      
-      <div class="col-lg-1"></div>
-      
-      
-      {%for i in range(0,5)%}
-      <div class="col-lg-2">
-        <h5 class="weather-date">{{trail['weatherData'][i]["day"]}}</h5>
-        <h6 class="weather-date"> {{trail['weatherData'][i]['weather']['description']}}</h6>
-        <img src="{{url_for('static', filename='openWeather/'+ trail['weatherData'][i]['weather']['icon']+'.png')}}" width=75 class="weather-icon">
-        <p class="weather"><strong>Temperature:</strong></p>
-        <ul>
-          <li class="weather"><p><strong>Morning:</strong> {{trail['weatherData'][i]['temp']['morn']}}&#176F</p></li>
-          <li class="weather"><p><strong>Day:</strong> {{trail['weatherData'][i]['temp']['day']}}&#176F</p></li>
-          <li class="weather"><p><strong>Evening:</strong> {{trail['weatherData'][i]['temp']['eve']}}&#176F</p></li>
-          <li class="weather"><p><strong>Night:</strong> {{trail['weatherData'][i]['temp']['night']}}&#176F</p></li>
+    {%if photos!="" and photoLen>0%}
+    <div class="container">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ul class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="{{0}}" class="active" ></li>
+          {%for i in range(1,photoLen)%}
+            <li data-target="#myCarousel" data-slide-to="{{i}}" ></li>
+          {% endfor %}
         </ul>
-        <p class="weather"><strong> Sunrise: </strong> {{trail['weatherData'][i]['sunrise']}} </p>
-        <p class="weather"><strong> Sunset: </strong> {{trail['weatherData'][i]['sunset']}} </p>
-        <p class="weather"><strong> Humidity: </strong> {{trail['weatherData'][i]['humidity']}}% </p>
-        <p class="weather"><strong> Rain: </strong> {{trail['weatherData'][i]['rain']}}% </p>
-        <p class="weather"><strong> Clouds: </strong> {{trail['weatherData'][i]['clouds']}}% </p>
-        <p class="weather"><strong> Wind: </strong> {{trail['weatherData'][i]['wind_speed']}} mi/hr </p>
-        <p class="weather"><strong> UV Index: </strong> {{trail['weatherData'][i]['uvi']}} </p>
+
+        <!-- The slideshow -->
+        <div class="carousel-inner carousel-custom">
+          <div class="carousel-item active">
+            <img src={{trail['photos'][0]}} class="d-block" style="margin: auto" height=350>
+          </div>
+          {%for i in range(1,photoLen)%}
+            <div class="carousel-item">
+              <img src={{trail['photos'][i]}} class="d-block" style="margin: auto" height=350>
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </a>
       </div>
-      {% endfor %}
-      <div class="col-lg-1"></div>
     </div>
-  </div>
+    {%endif%}
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 park-info">
+          <h2 class="big-h2">
+            {{trail['name']}}
+          </h2>
+          {%if trail['website']!=""%}
+          <p>
+            <strong>Address:</strong> {{trail['address']}}
+          </p>
+          {%endif%}
+          {%if trail['website']!=""%}
+          <p>
+            <strong>Website:</strong> <a href="{{trail['website']}}">{{trail['website']}}</a>
+          </p>
+          {%endif%}
+          {%if trail['rating']!=""%}
+          <p>
+            <strong>Rating:</strong> {{trail['rating']}}/5
+          </p>
+          {%endif%}
+        
+        </div>
+        <div class="col-lg-4 hours">
+          {%if trail['is_open']!=''%}
+            {%if trail['is_open']%}
+              <h6>Open Now</h6>
+            {%else%}
+              <h6>Currently Closed</h6>
+            {%endif%}
+          {%endif%}
+          {%if trail['hours']!=""%}
+            <table>
+            {%for i in range(0,7)%}
+              <tr>
+                <td>
+                  {{trail['hours'][i]}}
+                </td>
+              </tr>
+            {%endfor%}
+            </table>
+          {%endif%}
+        </div>
+      </div>
+
+      <h2 class="weather-header"> Weather </h2>
+
+      <div class="row">
+      
+        <div class="col-lg-1"></div>
+      
+      
+        {%for i in range(0,5)%}
+        <div class="col-lg-2">
+          <h5 class="weather-date">{{trail['weatherData'][i]["day"]}}</h5>
+          <h6 class="weather-date"> {{trail['weatherData'][i]['weather']['description']}}</h6>
+          <img src="{{url_for('static', filename='image/openWeather/'+ trail['weatherData'][i]['weather']['icon']+'.png')}}" width=75 class="weather-icon">
+          <p class="weather"><strong>Temperature:</strong></p>
+          <ul>
+            <li class="weather"><p><strong>Morning:</strong> {{trail['weatherData'][i]['temp']['morn']}}&#176F</p></li>
+            <li class="weather"><p><strong>Day:</strong> {{trail['weatherData'][i]['temp']['day']}}&#176F</p></li>
+            <li class="weather"><p><strong>Evening:</strong> {{trail['weatherData'][i]['temp']['eve']}}&#176F</p></li>
+            <li class="weather"><p><strong>Night:</strong> {{trail['weatherData'][i]['temp']['night']}}&#176F</p></li>
+          </ul>
+          <p class="weather"><strong> Sunrise: </strong> {{trail['weatherData'][i]['sunrise']}} </p>
+          <p class="weather"><strong> Sunset: </strong> {{trail['weatherData'][i]['sunset']}} </p>
+          <p class="weather"><strong> Humidity: </strong> {{trail['weatherData'][i]['humidity']}}% </p>
+          <p class="weather"><strong> Rain: </strong> {{trail['weatherData'][i]['rain']}}% </p>
+          <p class="weather"><strong> Clouds: </strong> {{trail['weatherData'][i]['clouds']}}% </p>
+          <p class="weather"><strong> Wind: </strong> {{trail['weatherData'][i]['wind_speed']}} mi/hr </p>
+          <p class="weather"><strong> UV Index: </strong> {{trail['weatherData'][i]['uvi']}} </p>
+        </div>
+        {% endfor %}
+        <div class="col-lg-1"></div>
+      </div>
+    </div>
    
 
-  <script>
-    $(window).resize(function () { 
-    $('body').css('padding-top', parseInt($('.navbar').css("height")));
-    });
+    <script>
+      $(window).resize(function () { 
+      $('body').css('padding-top', parseInt($('.navbar').css("height")));
+      });
 
-    $(window).ready(function () { 
-    $('body').css('padding-top', parseInt($('.navbar').css("height")));        
-    });
-  </script>
+      $(window).ready(function () { 
+      $('body').css('padding-top', parseInt($('.navbar').css("height")));        
+      });
+    </script>
 
+    <!--footer-->
+    <footer>
+      <div class = "container-fluid" id="footer">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="{{url_for('static', filename='image/hikrlogo.png')}}" class="footer-img"/>
+          </div>
+          <div class = "col-md-4">
+            <div class="side-bordered">
+              <h6>hikr</h6>
+              <p>Created by Adison Lampert & Lily Yeazell <br/>UT WiCS Hackathon 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
     
     
 

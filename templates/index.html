@@ -4,43 +4,43 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>hikr</title>
-    <link rel="shortcut icon" href="{{url_for('static', filename='hikrlogo.png')}}"type="image/png">
+    <!--favicon-->
+    <link rel="shortcut icon" href="{{url_for('static', filename='image/hikrlogo.png')}}"type="image/png">
 
-
-
-    <link href="{{url_for('static', filename='custom.css')}}"  rel="stylesheet" type="text/css" />
-
+    <!--connects to CSS file-->
+    <link href="{{url_for('static', filename='style/custom.css')}}"  rel="stylesheet" type="text/css" />
     
-
+    <!--Poppins font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
-     
 
-    
-
-    <!-- Latest compiled and minified CSS -->
+    <!-- Bootstrap Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!--Bootstrap Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-  
+    <!--Google Maps Autocomplete API-->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9yNsuuOXVOjiP9VQs5HVWlx7kLuJ0Bd4&libraries=places"></script>
   </head>
+
   <body class="main">
+    <!--navbar-->
     <nav class="navbar navbar-inverse fixed-top">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-          <li><img src="{{url_for('static', filename='hikr.png')}}" width=75 ></li>
+          <a>
+            <li>
+              <img src="{{url_for('static', filename='image/hikr.png')}}" width=75 />
+            </li>
+          </a>
         </ul>
-        
       </div>
     </nav>
 
@@ -48,53 +48,100 @@
     <div class="jumbotron main-header">
       <div class="container">
         <div class="hiker-title">
-          <img src="{{url_for('static', filename='hikr.png')}}" width=175 >
+          <img src="{{url_for('static', filename='image/hikr.png')}}" width=175 >
         </div>
-        <p>
+        <p class="take-control">
           Take control of your hike.
         </p>
       </div>
     </div>
     
     <!--search bar-->
-    
     <div class = "container search-bar">
       <div class="green-cell-2">
         <h2 class="search-instructions">
           Find Trails Nearby
         </h2>
-      <form action="/search-results" method="POST">
-        <input type= "text" name = "address" placeholder="Enter your location" class="input-text" id="searchTextField">
-        <input type = "submit" value = "Explore!" class="submit-button" >
-      </form>
+        <form action="/search-results" method="POST">
+          <input type= "text" name = "address" placeholder="Enter your location" class="input-text" id="searchTextField" />
+          <input type = "submit" value = "Explore!" class="submit-button" >
+        </form>
+      </div>
     </div>
-    </div>
+
+    <!--informational section-->
     <div class="info-section">
       <div class="side-image">
-        <img src="{{url_for('static', filename='hiking_woman.png')}}" width=400 >
+        <img src="{{url_for('static', filename='image/hiking_woman.png')}}" class="hiking-woman" >
       </div>
       <div class="intro-text">
         <h4> At Hikr, we love to hiking but hate the amount of time it takes to figure out the perfect time and day to go. That's why we created this website: an all-in-one hike planner. Planning a hike has never been easier! </h4>
+      </div>
     </div>
+
+    <!--our team-->
+    <br/>
+    <br/>
+    <h2 class="h2-big text-center top-line">Our Team</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+          <img src="{{url_for('static', filename='image/adisonPhoto.jpg')}}" class="rounded-circle team-photo mx-auto d-block"/>
+          <br/>
+          <h3 class="text-center">Adison Lampert</h3>
+          <p class="text-justify">
+            Adison Lampert is a senior at the Liberal Arts and Science Academy. She’s very passionate about increasing the number of women in STEM and has been a part of multiple initiatives to increase those numbers. When she’s not coding or mentoring young girls, Adison likes to watch dating reality shows and read manga. She hopes to pursue a degree in Computer Science and eventually end up in the field of Emotion AI. 
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img src="{{url_for('static', filename='image/lilyPhoto.jpg')}}" class="rounded-circle team-photo mx-auto d-block"/>
+          <br/>
+          <h3 class="text-center">Lily Yeazell</h3>
+          <p class="text-justify">
+            Lily Yeazell is a senior at the Liberal Arts and Science Academy. She is devoted to increasing the number of women in CS and STEM and tries to do whatever she can to help the cause. While she has only been programming for a few years, Lily is very passionate about it and plans to pursue a degree in computer science. In addition to computer science, Lily is interested in physics and computer engineering. She also loves to bake, figure skate, and hang out with friends.
+          </p>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
+
     
-  <script>
-    function initialize() {
-    var input = document.getElementById('searchTextField');
-    new google.maps.places.Autocomplete(input);
-    }
+    
+    <!--javascript to add autocomplete capabilities and reposition start of page based on navbar-->
+    <script>
+      function initialize() {
+      var input = document.getElementById('searchTextField');
+      new google.maps.places.Autocomplete(input);
+      }
 
-    google.maps.event.addDomListener(window, 'load', initialize);
+      google.maps.event.addDomListener(window, 'load', initialize);
 
-    $(window).resize(function () { 
-    $('body').css('padding-top', parseInt($('.navbar').css("height")));
-    });
+      $(window).resize(function () { 
+      $('body').css('padding-top', parseInt($('.navbar').css("height")));
+      });
 
-    $(window).ready(function () { 
-    $('body').css('padding-top', parseInt($('.navbar').css("height")));        
-    });
+      $(window).ready(function () { 
+      $('body').css('padding-top', parseInt($('.navbar').css("height")));        
+      });
 
+    </script>
 
-  </script>
-
+    <!--footer-->
+    <footer>
+      <div class = "container-fluid" id="footer">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="{{url_for('static', filename='image/hikrlogo.png')}}" class="footer-img"/>
+          </div>
+          <div class = "col-md-4">
+            <div class="side-bordered">
+              <h6>hikr</h6>
+              <p>Created by Adison Lampert & Lily Yeazell <br/>UT Wics Hackathon 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
