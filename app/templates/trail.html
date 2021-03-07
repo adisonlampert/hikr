@@ -31,10 +31,9 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-  
-
   </head>
   <body class="main">
+    <!--navbar-->
     <nav class="navbar navbar-inverse fixed-top">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
@@ -42,6 +41,12 @@
         </ul>
       </div>
     </nav>
+
+  <!--back button-->
+  <button onclick="window.history.back()" class="submit-button back-button">
+    Back to Search
+  </button>
+
 
   {%if photos!="" and photoLen>0%}
   <div class="container">
@@ -67,10 +72,10 @@
   </div>
 
   <!-- Left and right controls -->
-  <a class="carousel-control-prev" href="#demo" data-slide="prev">
+  <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
     <span class="carousel-control-prev-icon"></span>
   </a>
-  <a class="carousel-control-next" href="#demo" data-slide="next">
+  <a class="carousel-control-next" href="#myCarousel" data-slide="next">
     <span class="carousel-control-next-icon"></span>
   </a>
   </div>
@@ -81,13 +86,10 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-6 park-info">
+      <div class="col-lg-8 park-info">
         <h2 class="big-h2">
           {{trail['name']}}
         </h2>
-        
-      </div>
-      <div class="col-lg-6">
         {%if trail['website']!=""%}
         <p>
           <strong>Address:</strong> {{trail['address']}}
@@ -103,6 +105,10 @@
           <strong>Rating:</strong> {{trail['rating']}}/5
         </p>
         {%endif%}
+        
+      </div>
+      <div class="col-lg-4">
+        
 
         {%if trail['is_open']!=''%}
           {%if trail['is_open']%}
@@ -168,6 +174,22 @@
     });
   </script>
 
+    <!--footer-->
+    <footer>
+      <div class = "container-fluid" id="footer">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="{{url_for('static', filename='hikrlogo.png')}}" class="footer-img"/>
+          </div>
+          <div class = "col-md-4">
+            <div class="side-bordered">
+              <h6>hikr</h6>
+              <p>Created by Adison Lampert & Lily Yeazell <br/>UT WiCS Hackathon 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
     
     
 

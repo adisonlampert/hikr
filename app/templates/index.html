@@ -34,11 +34,12 @@
   
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9yNsuuOXVOjiP9VQs5HVWlx7kLuJ0Bd4&libraries=places"></script>
   </head>
+
   <body class="main">
     <nav class="navbar navbar-inverse fixed-top">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-          <li><img src="{{url_for('static', filename='hikr.png')}}" width=75 ></li>
+          <a><li><img src="{{url_for('static', filename='hikr.png')}}" width=75 ></li>
         </ul>
         
       </div>
@@ -57,7 +58,6 @@
     </div>
     
     <!--search bar-->
-    
     <div class = "container search-bar">
       <div class="green-cell-2">
         <h2 class="search-instructions">
@@ -75,6 +75,7 @@
       </div>
       <div class="intro-text">
         <h4> At Hikr, we love to hiking but hate the amount of time it takes to figure out the perfect time and day to go. That's why we created this website: an all-in-one hike planner. Planning a hike has never been easier! </h4>
+      </div>
     </div>
     
   <script>
@@ -96,5 +97,21 @@
 
   </script>
 
+  <!--footer-->
+    <footer>
+      <div class = "container-fluid" id="footer">
+        <div class="row">
+          <div class="col-md-2">
+            <img src="{{url_for('static', filename='hikrlogo.png')}}" class="footer-img"/>
+          </div>
+          <div class = "col-md-4">
+            <div class="side-bordered">
+              <h6>hikr</h6>
+              <p>Created by Adison Lampert & Lily Yeazell <br/>UT Wics Hackathon 2021</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

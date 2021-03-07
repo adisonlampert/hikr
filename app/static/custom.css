@@ -150,4 +150,23 @@ h1{
   justify-content: space-around;
 }
 
+.footer-img{
+  width: 75%;
+  padding-left: 40px;
+
+}
+
+#footer{
+  padding: 40px;
+  margin-top:40px;
+  background-color: #002B22 !important;
+  color: #ffffff;
+}
+
+.back-button{
+  text-align: right;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+}
 
