@@ -1,25 +1,3 @@
-Project Name: hikr
-
-Elevator Pitch: At hikr, we love hiking but hate how much time it takes to find the perfect time and day to go. That's why we created this website: an all-in-one hike planner. Planning a hike has never been easier!
-
-## Inspiration
-
-## What it does
-
-## How we built it
-
-## Challenges we ran into
-
-## Accomplishments that we're proud of
-
-## What we learned
-
-## What's next for Untitled
-
-
-About the project
-Be sure to write what inspired you, what you learned, how you built your project, and the challenges you faced. Format your story in Markdown.
- 
 #hikr
 ### An all-in-one hike planner website.
  
