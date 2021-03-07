@@ -1,0 +1,153 @@
+/* CSS files add styling rules to your content */
+
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 2em;
+}
+
+.main-header.jumbotron{
+  color: #ffffff;
+  background-image:
+    linear-gradient(to bottom, rgba(240, 255, 210, 0.52), rgba(0, 43, 34, 0.73)), 
+    url('jumbotronImage.jpg');
+  padding-top: 200px;
+  padding-bottom: 100px;
+  margin-bottom:50px;
+  background-size: cover;
+  background-repeat: repeat-x;
+
+}
+
+nav{
+  background-color: #002B22 !important;  
+}
+
+.nav {
+  padding: 10px;
+}
+
+h1{
+  font-size: 5rem !important;
+}
+
+.input-text{
+  width: 60%;
+}
+
+.search-bar-heading{
+  color: #ffffff !important;
+}
+
+.green-cell-2 {
+  margin-top: -150px;
+  background-color: #005140;
+  color: white;
+  padding: 40px;
+  border-radius: 5px;
+  margin-left: 35%;
+}
+
+.green-cell{
+  margin: 20px 0px;
+  background-color: #005140;
+  border-radius: 10px;
+  color: #3d405b;
+  padding-left: 25px;
+  padding-bottom:30px;
+  padding-top:20px;
+}
+
+.input-text{
+  border: none;
+  text-decoration: none;
+  padding: 7px;
+  width:75%;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.submit-button, .explore-button{
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: rgb(113,179,151);
+  color: white;
+  padding: 7px;
+  font-size: 1rem;
+}
+
+.submit-button:hover{
+  background-color: rgb(90,150,130);
+}
+
+.info-section {
+  margin: 0px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hiker-title {
+  margin-left: -5px;
+}
+
+.main {
+  background-color: #EADBC3;
+}
+
+.carousel-custom {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.weather {
+  line-height: 1;
+  padding: 0px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.weather-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.weather-date {
+  text-align: center;
+}
+
+.weather-header {
+  margin-top: 30px;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+.park-info{
+  margin-top:30px !important;
+}
+
+.big-h2{
+  font-size: 3rem !important
+}
+
+.search-results-display {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+

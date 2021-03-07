@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>hikr</title>
+    <link rel="shortcut icon" href="{{url_for('static', filename='hikrlogo.png')}}"type="image/png">
+
+    <link href="{{url_for('static', filename='custom.css')}}"  rel="stylesheet" type="text/css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9yNsuuOXVOjiP9VQs5HVWlx7kLuJ0Bd4&libraries=places"></script>
+  </head>
+  <body class="main">
+    <nav class="navbar navbar-inverse fixed-top">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><img src="{{url_for('static', filename='hikr.png')}}" width=75 ></li>
+        </ul>
+        
+      </div>
+    </nav>
+
+    <!--header-->  
+      <div class="search-results-display">
+        <div>
+          <h1>
+            Search Results
+          </h1>
+          <h4>
+            Here are the trails closest to {{address}} 
+          </h4>
+        </div>
+      <div>
+        <img src="{{url_for('static', filename='couple_walking.png')}}" width=250 >
+      </div>
+      </div>
+    
+    <!--search bar-->
+    
+    <div class = "container search-bar">
+      <div class="green-cell">
+      <h2 class="search-bar-heading">
+        Find Other Trails
+      </h2>
+      <form action="/search-results" method="POST">
+        <input type= "text" name = "address" placeholder="Enter your location" class="input-text" id="searchTextField">
+        <input type = "submit" value = "Submit" class="submit-button" >
+      </form>
+    </div>
+    </div>
+
+  <div class = "container">
+  
+  <div class="card-columns">
+    {%for h in range(0,hikeLength)%}
+
+        <div class="card">
+          <img class="card-img-top" src={{hikes[h]['photos']}} alt="Card image">
+          <div class="card-body">
+            <h4 class="card-title">{{hikes[h]['name']}}</h4>
+            <p class="card-text">Location: {{hikes[h]['address']}} </p>
+            <form action="/trail/{{hikes[h]['lat']}}/{{hikes[h]['long']}}/{{hikes[h]['place_id']}}">
+            <input type="submit" value="Explore!" class="submit-button explore"></input>
+            </form>
+          </div>
+        </div>
+
+    {%endfor%} 
+  </div>
+  
+  </div>
+    
+  <script>
+    function initialize() {
+    var input = document.getElementById('searchTextField');
+    new google.maps.places.Autocomplete(input);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    $(window).resize(function () { 
+    $('body').css('padding-top', parseInt($('.navbar').css("height")));
+    });
+
+    $(window).ready(function () { 
+    $('body').css('padding-top', parseInt($('.navbar').css("height")));        
+    });
+
+
+
+  </script>
+
+  </body>
+</html>
