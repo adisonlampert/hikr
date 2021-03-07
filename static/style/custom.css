@@ -21,7 +21,7 @@ body {
   color: #ffffff;
   background-image:
     linear-gradient(to bottom, rgba(240, 255, 210, 0.52), rgba(0, 43, 34, 0.73)), 
-    url('jumbotronImage.jpg');
+    url('../image/jumbotronImage.jpg');
   padding-top: 200px;
   padding-bottom: 100px;
   margin-bottom:50px;
@@ -39,7 +39,7 @@ nav{
 }
 
 h1{
-  font-size: 5rem !important;
+  font-size: 5rem;
 }
 
 .input-text{
@@ -48,6 +48,10 @@ h1{
 
 .search-bar-heading{
   color: #ffffff !important;
+}
+
+.hiking-woman {
+  width: 400px;
 }
 
 .green-cell-2 {
@@ -168,5 +172,66 @@ h1{
   position: fixed;
   top: 80px;
   right: 20px;
+}
+
+
+a {
+  color: #005140 !important;
+}
+
+.hours {
+  margin-top: 45px;
+}
+
+.team-photo{
+  width:50%;
+}
+
+@media screen and (max-width: 1110px) {
+  .hiker-title {
+    margin-left: 20px;
+  }
+
+  .take-control {
+    margin-left: 20px;
+  }
+
+  .green-cell-2 {
+    width: 100%;
+    margin: -150px 5px;
+  }
+
+  .submit-button {
+    margin-top: 15px;
+  }
+
+  .info-section {
+    margin-top: 170px;
+    flex-direction: column;
+  }
+
+  .hiking-woman {
+    width: 200px;
+  }
+
+  .search-results-display {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .search-text {
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .results {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .green-cell {
+    padding: 20px 10px;
+    padding-left: 15px;
+  }
 }
 
