@@ -1,4 +1,4 @@
-#hikr
+# hikr
 ### An all-in-one hike planner website.
  
 ## :sunrise_over_mountains: What Inspired Us
@@ -12,37 +12,37 @@ A hike-enthusiast can search any location whether that’s their home address, c
 
 ## :sunrise_over_mountains: What We Learned
 
-###Python Flask
+### Python Flask
 This was our first project using Python Flask so it was an opportunity to improve upon our Flask knowledge. We learned how to use Flask throughout the entire web page such as for loops with Jinja to create content.
 
-###APIs
+### APIs
 It was also our first major project using APIs so we were able to learn more about json format and about sending requests via APIs. We had the opportunity to explore the various API options and learn about choosing the right API. We nearly died reading all of the documentation, but the result was worth it!
 
-###Web Development
+### Web Development
 We improved our CSS, HTML, and Javascript knowledge and learned how to implement various features. We explored the Bootstrap framework and the possibilities of Bootstrap such as a photo carousel.
 
-###Google Cloud Platform
+### Google Cloud Platform
 This was the first time we ever used Google Cloud Platform and it ended up being an integral part of our project. Google Cloud Platform provided us with the Google Places API and Google Geocode API that allowed us to find nearby hiking locations from a given location. Additionally, we used Google App Engine to deploy our website.
 
 ## :sunrise_over_mountains: How We Built It
 
-###Python Flask
+### Python Flask
 Flask handled the back-end of the project. We used Flask to communicate with APIs, organize data, and dynamically generate content.
 
-###Bootstrap
+### Bootstrap
 Most of our front-end was designed with Bootstrap.
 
-###Google Places API and Google Geocode API
+### Google Places API and Google Geocode API
 Google Geocode determines the latitude and longitude of the address entered in the search bar. Google Places uses the latitude and longitude to find hiking trails within a 10km radius of the location. We also used Google Places to collect data about the trails.
 
-###OpenWeather API
+### OpenWeather API
 The open weather API allowed us to gather weather information based on the latitude and longitude of the trail.
 
-###Google App Engine
+### Google App Engine
 We used Google Cloud’s Google App Engine to host our Flask application.
 
 
-##:sunrise_over_mountains: Challenges
+## :sunrise_over_mountains: Challenges
 
 Our first challenge was finding the correct APIs to use for the project. After finding several dead-ends in the quest for an API that could find hiking trails, we stumbled upon Google Places API. We then realized we would need the latitude and longitude of the user in order to search nearby trails. Google Geocode API was the answer to this since it takes an address and returns the coordinates. We had to get a little creative with our request, but in the end we were able to get the data we needed.
 
